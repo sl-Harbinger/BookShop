@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: book-service
+
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/db_book?currentSchema=schema_book
+    username: postgres
+    password: postgres
+
+  liquibase:
+    enabled: true
+    change-log: classpath:database_book-service_changelog.xml
+    default-schema: schema_book
+    liquibase-schema: schema_book
+    drop-first: false
+    user: postgres
+    password: postgres
+
+springdoc:
+  api-docs:
+    path: /api
+  swagger-ui:
+    path: /api/doc
+    display-request-duration: true
+    show-extensions: true
+    show-common-extensions: true

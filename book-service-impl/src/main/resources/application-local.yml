@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_book?currentSchema=schema_book
+    username: postgres
+    password: postgres
+
+logging.level:
+  ru.rshb.dbo: DEBUG

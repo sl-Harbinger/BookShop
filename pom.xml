@@ -1,0 +1,36 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.testproj.book.backend</groupId>
+    <artifactId>book-service</artifactId>
+    <version>${artifactVersion}</version>
+    <packaging>pom</packaging>
+    <name>BOOK-SERVICE</name>
+    <description>Book MS</description>
+
+    <modules>
+        <module>book-service-parent</module>
+        <module>book-service-impl</module>
+        <module>book-service-db</module>
+        <module>book-service-api</module>
+    </modules>
+
+    <properties>
+        <java.version>11</java.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <artifactVersion>local-SNAPSHOT</artifactVersion>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>2.8.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
