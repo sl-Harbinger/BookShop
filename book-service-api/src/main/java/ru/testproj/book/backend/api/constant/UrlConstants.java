@@ -1,4 +1,4 @@
-package ru.testproj.book.backend.api.constants;
+package ru.testproj.book.backend.api.constant;
 
 import lombok.experimental.UtilityClass;
 @UtilityClass

@@ -6,9 +6,10 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.testproj.book.backend.api.constants.UrlConstants;
+import ru.testproj.book.backend.api.constant.UrlConstants;
 import ru.testproj.book.backend.api.dto.ExampleDto;
 import ru.testproj.book.backend.api.resource.ExampleResource;
+
 
 import javax.validation.Valid;
 import java.util.UUID;

@@ -18,7 +18,7 @@
     <properties>
         <liquibase.host>localhost</liquibase.host>
         <liquibase.port>5432</liquibase.port>
-        <liquibase.db>db_book</liquibase.db>
+        <liquibase.db>db_book1</liquibase.db>
         <liquibase.schema>schema_book</liquibase.schema>
         <liquibase.user>postgres</liquibase.user>
         <liquibase.password>postgres</liquibase.password>
@@ -27,6 +27,7 @@
 
     <dependencies>
         <!-- =============          RSHB Application dependency          ============= -->
+
 
         <!-- =============          Spring dependency          ============= -->
 
