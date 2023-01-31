@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a577416f-8a0e-43fc-9fee-47ae3e89e42e" name="Changes" comment="BD author">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="a577416f-8a0e-43fc-9fee-47ae3e89e42e" name="Changes" comment="в BD таблицы+ 2 связи">
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/db_book1.Z7vNew.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/db_book1.Z7vNew/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/db_book1.Z7vNew/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/db_book1.Z7vNew/schema/schema_book.xxq9ww.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/f93061f0-ca3b-4f58-b6fd-c84d88830d78/storage_v2/_src_/database/postgres.edMnLQ/schema/pg_catalog.0S1ZNQ.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Changes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Changes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_01_2023_0_26__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_01_2023_0_26__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,16 +53,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "history": [
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;history&quot;: [
     {
-      "state": "OPEN",
-      "author": "LeonidaZZZ"
+      &quot;state&quot;: &quot;OPEN&quot;,
+      &quot;author&quot;: &quot;LeonidaZZZ&quot;
     }
   ],
-  "lastFilter": {
+  &quot;lastFilter&quot;: {
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -84,12 +96,13 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/Слава/Desktop/BookShop/BookShop",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "last_opened_file_path": "C:/Users/Слава/IdeaProjects/BookShopNew/book-service-db/src/main/resources/db_changelog/v1.0",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Problems",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
@@ -103,6 +116,17 @@
     ]
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Слава\IdeaProjects\BookShopNew\book-service-db\src\main\resources\db_changelog\v1.0" />
+      <recent name="C:\Users\Слава\IdeaProjects\BookShopNew\book-service-db\src\main\resources\db_changelog.v.2.0" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Слава\IdeaProjects\BookShopNew\book-service-db\src\main\resources\db_changelog\v1.0" />
+      <recent name="C:\Users\Слава\IdeaProjects\BookShopNew\book-service-db\src\main\resources\db_changelog.v.2.0" />
+      <recent name="C:\Users\Слава\IdeaProjects\BookShopNew\book-service-db\src\main\resources" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <method v="2">
@@ -136,7 +160,8 @@
       <workItem from="1675013766310" duration="214000" />
       <workItem from="1675014229773" duration="7229000" />
       <workItem from="1675070739869" duration="7604000" />
-      <workItem from="1675085373683" duration="19199000" />
+      <workItem from="1675085373683" duration="37510000" />
+      <workItem from="1675189031427" duration="8519000" />
     </task>
     <task id="LOCAL-00001" summary="исправил БД">
       <created>1675020388280</created>
@@ -159,7 +184,35 @@
       <option name="project" value="LOCAL" />
       <updated>1675159801971</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="BD author">
+      <created>1675160381041</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1675160381041</updated>
+    </task>
+    <task id="LOCAL-00005" summary="BD author">
+      <created>1675161427894</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1675161427894</updated>
+    </task>
+    <task id="LOCAL-00006" summary="BD author">
+      <created>1675177842655</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1675177842655</updated>
+    </task>
+    <task id="LOCAL-00007" summary="в BD таблицы+ 2 связи">
+      <created>1675197254766</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1675197254767</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,7 +233,8 @@
     <MESSAGE value="исправил БД" />
     <MESSAGE value="исправил БД1" />
     <MESSAGE value="BD author" />
-    <option name="LAST_COMMIT_MESSAGE" value="BD author" />
+    <MESSAGE value="в BD таблицы+ 2 связи" />
+    <option name="LAST_COMMIT_MESSAGE" value="в BD таблицы+ 2 связи" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

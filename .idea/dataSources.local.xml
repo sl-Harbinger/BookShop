@@ -14,8 +14,11 @@
             <node kind="database" qname="@">
               <node kind="schema" qname="@" />
             </node>
-            <node kind="database" qname="db_book1">
-              <node kind="schema" qname="schema_book" />
+            <node kind="database" qname="db_book">
+              <node kind="schema">
+                <name qname="schema_book" />
+                <name qname="schema_db_book" />
+              </node>
             </node>
           </node>
         </introspection-scope>
