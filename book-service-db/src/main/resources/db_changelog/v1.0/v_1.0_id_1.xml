@@ -2,7 +2,7 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <property name="prefix" value="db"/>
+    <property name="prefix" value="author"/>
     <property name="author" value="Slava"/>
 
     <changeSet id="v_1.0_id_1.1_module_book-service_task_JIRA-1234_date_23042021.xml" author="${author}">
@@ -12,8 +12,8 @@
             </not>
         </preConditions>
         <createTable tableName="${prefix}_example_foo">
-            <column name="id" type="BIGINT"/>
-            <column name="fist_foo" type="VARCHAR(255)"/>
+            <column name="id_author" type="int"/>
+            <column name="name" type="VARCHAR(255)"/>
         </createTable>
         <rollback>
             <dropTable tableName="${prefix}_example_foo"/>

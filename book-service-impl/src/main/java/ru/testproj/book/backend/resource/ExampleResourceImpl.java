@@ -1,5 +1,6 @@
 package ru.testproj.book.backend.resource;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,21 +13,38 @@ import ru.testproj.book.backend.api.resource.ExampleResource;
 
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
 @RequestMapping(UrlConstants.MAIN_URL)
 public class ExampleResourceImpl implements ExampleResource {
 
+    private List<ExampleDto> proverka = new ArrayList<>();
     @Override
     @GetMapping("/{uuid}")
-    public ExampleDto getExampleByID(@PathVariable UUID uuid) {
+    public ResponseEntity<ExampleDto> getExampleByID(@PathVariable UUID uuid) {
+        for (ExampleDto name:proverka) {
+           if (name.getId().equals(uuid)){
+               return ResponseEntity.ok(name);
+           }
+
+        }
+
+
+
         return null;
     }
+
+
 
     @Override
     @PostMapping("/create")
     public ExampleDto createExample(@RequestBody @Valid ExampleDto accountDTO) {
-        return null;
+        proverka.add(accountDTO);
+
+
+        return accountDTO;
     }
 }

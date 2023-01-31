@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
+import org.springframework.http.ResponseEntity;
 import ru.testproj.book.backend.api.dto.ExampleDto;
 
 import javax.validation.constraints.NotNull;
@@ -28,7 +29,7 @@ public interface ExampleResource {
                     content = @Content),
             @ApiResponse(responseCode = "404", description = "Счет по заданному идентификатору не найден",
                     content = @Content) })
-    ExampleDto getExampleByID(@Parameter(description = "Идентификатор счета для поиска") @NotNull UUID uuid);
+    ResponseEntity<ExampleDto> getExampleByID(@Parameter(description = "Идентификатор счета для поиска") @NotNull UUID uuid);
 
     @Operation(summary = "Создание счета")
     @ApiResponses(value = {
