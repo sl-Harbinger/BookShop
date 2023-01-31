@@ -1,0 +1,84 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/book-service-api/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/book-service-db/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/book-service-impl/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/book-service-parent/pom.xml\" />\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_19\" default=\"true\" project-jdk-name=\"openjdk-19\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 06cdbfa8f8dacd008a3bd29597f62b83e13ef6be)
++++ b/.idea/misc.xml	(date 1675073507493)
+@@ -14,4 +14,7 @@
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="openjdk-19" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/out" />
+   </component>
++  <component name="ProjectType">
++    <option name="id" value="jpab" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"CompilerConfiguration\">\r\n    <annotationProcessing>\r\n      <profile name=\"Maven default annotation processors profile\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n      </profile>\r\n      <profile name=\"Annotation profile for BOOK-SERVICE :: DB\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <processorPath useClasspath=\"false\">\r\n          <entry name=\"$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar\" />\r\n        </processorPath>\r\n        <module name=\"book-service-api\" />\r\n        <module name=\"book-service-db\" />\r\n      </profile>\r\n      <profile name=\"Annotation profile for BOOK-SERVICE\" enabled=\"true\">\r\n        <sourceOutputDir name=\"target/generated-sources/annotations\" />\r\n        <sourceTestOutputDir name=\"target/generated-test-sources/test-annotations\" />\r\n        <outputRelativeToContentRoot value=\"true\" />\r\n        <processorPath useClasspath=\"false\">\r\n          <entry name=\"$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar\" />\r\n          <entry name=\"$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.4.2.Final/mapstruct-processor-1.4.2.Final.jar\" />\r\n          <entry name=\"$MAVEN_REPOSITORY$/org/mapstruct/mapstruct/1.4.2.Final/mapstruct-1.4.2.Final.jar\" />\r\n          <entry name=\"$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar\" />\r\n        </processorPath>\r\n        <module name=\"book-service-impl\" />\r\n      </profile>\r\n    </annotationProcessing>\r\n    <bytecodeTargetLevel>\r\n      <module name=\"book-service-api\" target=\"11\" />\r\n      <module name=\"book-service-db\" target=\"11\" />\r\n      <module name=\"book-service-impl\" target=\"11\" />\r\n      <module name=\"book-service-parent\" target=\"11\" />\r\n      <module name=\"BookShopNew\" target=\"1.5\" />\r\n    </bytecodeTargetLevel>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+--- a/.idea/compiler.xml	(revision 06cdbfa8f8dacd008a3bd29597f62b83e13ef6be)
++++ b/.idea/compiler.xml	(date 1675020827439)
+@@ -2,6 +2,7 @@
+ <project version="4">
+   <component name="CompilerConfiguration">
+     <annotationProcessing>
++      <profile default="true" name="Default" enabled="true" />
+       <profile name="Maven default annotation processors profile" enabled="true">
+         <sourceOutputDir name="target/generated-sources/annotations" />
+         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+@@ -15,6 +16,14 @@
+           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
+         </processorPath>
+         <module name="book-service-api" />
++      </profile>
++      <profile name="Annotation profile for book-service-db" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <processorPath useClasspath="false">
++          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.20/lombok-1.18.20.jar" />
++        </processorPath>
+         <module name="book-service-db" />
+       </profile>
+       <profile name="Annotation profile for BOOK-SERVICE" enabled="true">
+@@ -31,6 +40,7 @@
+       </profile>
+     </annotationProcessing>
+     <bytecodeTargetLevel>
++      <module name="book-service" target="1.5" />
+       <module name="book-service-api" target="11" />
+       <module name="book-service-db" target="11" />
+       <module name="book-service-impl" target="11" />
+Index: .idea/dataSources.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"DataSourceManagerImpl\" format=\"xml\" multifile-model=\"true\">\r\n    <data-source source=\"LOCAL\" name=\"db_book@localhost\" uuid=\"10235d8c-e6ac-4161-b09b-9c94ebe38213\">\r\n      <driver-ref>postgresql</driver-ref>\r\n      <synchronize>true</synchronize>\r\n      <jdbc-driver>org.postgresql.Driver</jdbc-driver>\r\n      <jdbc-url>jdbc:postgresql://localhost:5432/db_book</jdbc-url>\r\n      <working-dir>$ProjectFileDir$</working-dir>\r\n    </data-source>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/dataSources.xml b/.idea/dataSources.xml
+--- a/.idea/dataSources.xml	(revision 06cdbfa8f8dacd008a3bd29597f62b83e13ef6be)
++++ b/.idea/dataSources.xml	(date 1675021341930)
+@@ -1,11 +1,11 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+-    <data-source source="LOCAL" name="db_book@localhost" uuid="10235d8c-e6ac-4161-b09b-9c94ebe38213">
++    <data-source source="LOCAL" name="postgres@localhost" uuid="efe58dff-ae26-4c84-832b-2939669c5da8">
+       <driver-ref>postgresql</driver-ref>
+       <synchronize>true</synchronize>
+       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+-      <jdbc-url>jdbc:postgresql://localhost:5432/db_book</jdbc-url>
++      <jdbc-url>jdbc:postgresql://localhost:5432/postgres</jdbc-url>
+       <working-dir>$ProjectFileDir$</working-dir>
+     </data-source>
+   </component>

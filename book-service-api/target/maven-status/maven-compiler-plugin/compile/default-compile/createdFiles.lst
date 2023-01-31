@@ -1,0 +1,5 @@
+ru\testproj\book\backend\api\config\OpenApiConfig.class
+ru\testproj\book\backend\api\constants\UrlConstants.class
+ru\testproj\book\backend\api\dto\ErrorCode.class
+ru\testproj\book\backend\api\resource\ExampleResource.class
+ru\testproj\book\backend\api\dto\ExampleDto.class
