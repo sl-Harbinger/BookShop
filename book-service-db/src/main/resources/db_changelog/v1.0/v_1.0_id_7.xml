@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="prefix" value="db_book"/>
+    <property name="author" value="Slava"/>
+
+    <changeSet id="v_1.0_id_7.1_module_book-service_connect_author\book_date_31012023.xml" author="${author}">
+        <preConditions onFail="MARK_RAN">
+                <tableExists tableName="db_book_book"/>
+                <tableExists tableName="db_book_author"/>
+        </preConditions>
+        <!--    -->
+            <addForeignKeyConstraint baseTableName="db_book_book"
+                                     baseColumnNames="id_author"
+                                     constraintName="fk_db_book_book_id_author_db_book_author_id"
+                                     referencedTableName="db_book_author"
+                                     referencedColumnNames="id"/>
+        <rollback>
+            <dropForeignKeyConstraint baseTableName="book"
+                                      constraintName="fk_id_author_book"/>
+
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

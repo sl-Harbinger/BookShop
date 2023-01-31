@@ -2,24 +2,28 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <property name="prefix" value="author"/>
+    <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_1.1_module_book-service_task_JIRA-1234_date_23042021.xml" author="${author}">
+    <changeSet id="v_1.0_id_1.1_module_book-service_table_author_date_31012023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="${prefix}_example_foo"/>
+                <tableExists tableName="${prefix}_author"/>
             </not>
         </preConditions>
-        <createTable tableName="${prefix}_example_foo">
-            <column name="id_author" type="int" autoIncrement="true">
+        <createTable tableName="${prefix}_author" remarks="таблица авторов">
+            <column name="id" type="uuid" remarks="поле для связи по id с книгой">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="name" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)" remarks="ФИО автора"/>
         </createTable>
         <rollback>
-            <dropTable tableName="${prefix}_example_foo"/>
+            <dropTable tableName="${prefix}_author"/>
         </rollback>
     </changeSet>
+
+
+
+
 
 </databaseChangeLog>

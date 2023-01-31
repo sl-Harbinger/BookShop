@@ -1,0 +1,29 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="prefix" value="db_book"/>
+    <property name="author" value="Slava"/>
+
+    <changeSet id="v_1.0_id_4.1_module_book-service_table_order_date_31012023.xml" author="${author}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="${prefix}_order"/>
+            </not>
+        </preConditions>
+        <createTable tableName="${prefix}_order" remarks="таблица заказов">
+            <column name="id" type="uuid" remarks="поле № заказа">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="id_seller" type="uuid" remarks="связь id с продавцом"/>
+            <column name="id_customer" type="uuid" remarks="связь id с покупателем"/>
+            <column name="id_book" type="uuid" remarks="связь id с книгой"/>
+            <column name="data" type="date" remarks="дата заказа"/>
+            <column name="number" type="int" remarks="кол-во книг"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="${prefix}_order"/>
+        </rollback>
+    </changeSet>
+
+</databaseChangeLog>

@@ -5,7 +5,7 @@ spring:
   datasource:
     driverClassName: org.postgresql.Driver
 
-    url: jdbc:postgresql://localhost:5432/db_book1?currentSchema=schema_book
+    url: jdbc:postgresql://localhost:5432/db_book?currentSchema=schema_book
     username: postgres
     password: postgres
 
@@ -26,3 +26,4 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+

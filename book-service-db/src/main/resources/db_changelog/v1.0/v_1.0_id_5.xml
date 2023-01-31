@@ -5,21 +5,21 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_2.1_module_book-service_table_publisher_date_31012023.xml" author="${author}">
+    <changeSet id="v_1.0_id_5.1_module_book-service_table_book_seller_31012023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="${prefix}_publisher"/>
+                <tableExists tableName="${prefix}_seller"/>
             </not>
         </preConditions>
-        <createTable tableName="${prefix}_publisher" remarks="таблица издательств">
-            <column name="id" type="uuid" remarks="поле для связи по id с книгой">
+        <createTable tableName="${prefix}_seller" remarks="таблица продавцы">
+            <column name="id" type="uuid" remarks="поле для связи id с заказом">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="title" type="VARCHAR(255)" remarks="Издательство"/>
-            <column name="city" type="VARCHAR(255)" remarks="город"/>
+            <column name="name" type="VARCHAR(255)" remarks="ФИО продавца"/>
+            <column name="position" type="VARCHAR(65)" remarks="должность"/>
         </createTable>
         <rollback>
-            <dropTable tableName="${prefix}_publisher"/>
+            <dropTable tableName="${prefix}_seller"/>
         </rollback>
     </changeSet>
 

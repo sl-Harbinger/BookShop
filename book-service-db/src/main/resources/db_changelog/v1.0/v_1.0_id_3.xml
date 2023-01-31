@@ -2,31 +2,26 @@
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
-    <property name="prefix" value="book"/>
+    <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_3.1_module_book-service_task_JIRA-1234_date_31012023.xml" author="${author}">
+    <changeSet id="v_1.0_id_3.1_module_book-service_table_book_date_31012023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="${prefix}_example_foo"/>
+                <tableExists tableName="${prefix}_book"/>
             </not>
         </preConditions>
-        <createTable tableName="${prefix}_example_foo">
-            <column name="id_book" type="int" autoIncrement="true">
+        <createTable tableName="${prefix}_book" remarks="таблица книг">
+            <column name="id" type="uuid" remarks="поле для связи по id с заказам">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="id_publisher" type="int">
-                <constraints foreignKeyName="publisher_id_publisher_book_id_book" references="book(id_publisher)"/>
-            </column>
-            <column name="id_author" type="int">
-                <constraints foreignKeyName="author_id_author_book_id_book" references="book(id_author)"/>
-            </column>
-            <column name="title" type="VARCHAR(255)"/>
-            <column name="price" type="double"/>
-
+            <column name="id_publisher" type="uuid" remarks="связь id с издательством"/>
+            <column name="id_author" type="uuid" remarks="связь id с автором"/>
+            <column name="title" type="VARCHAR(255)" remarks="название книги"/>
+            <column name="price" type="double" remarks="цена"/>
         </createTable>
         <rollback>
-            <dropTable tableName="${prefix}_example_foo"/>
+            <dropTable tableName="${prefix}_book"/>
         </rollback>
     </changeSet>
 
