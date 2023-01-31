@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
-  <!--  <property name="prefix" value="db"/> -->
+
     <property name="schema" value="schema_book"/>
 
     <include file="db_changelog/v1.0/changelog-v1.0-cumulative.xml" relativeToChangelogFile="true"/>

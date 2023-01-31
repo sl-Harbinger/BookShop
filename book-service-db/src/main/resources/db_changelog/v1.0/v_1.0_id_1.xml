@@ -12,7 +12,9 @@
             </not>
         </preConditions>
         <createTable tableName="${prefix}_example_foo">
-            <column name="id_author" type="int"/>
+            <column name="id_author" type="int" autoIncrement="true">
+                <constraints primaryKey="true"/>
+            </column>
             <column name="name" type="VARCHAR(255)"/>
         </createTable>
         <rollback>
