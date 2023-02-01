@@ -15,8 +15,8 @@
 
     <include file="v_1.0_id_7.xml" relativeToChangelogFile="true"/>
     <include file="v_1.0_id_8.xml" relativeToChangelogFile="true"/>
-
-
-
+    <include file="v_1.0_id_9.xml" relativeToChangelogFile="true"/>
+    <include file="v_1.0_id_10.xml" relativeToChangelogFile="true"/>
+    <include file="v_1.0_id_11.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
