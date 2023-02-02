@@ -32,10 +32,6 @@ hs_err_pid*
 /prometheus/
 /grafana/
 /.
-/book-service-api/
-/book-service-db/
-/book-service-impl/
-/book-service-parent/
 /.idea/
 /book-service-parent/book-service-parent.iml
 /book-service-parent/pom.xml
@@ -48,4 +44,3 @@ hs_err_pid*
 /docker-compose.yml
 /pom.xml
 /README.md
-/target/
