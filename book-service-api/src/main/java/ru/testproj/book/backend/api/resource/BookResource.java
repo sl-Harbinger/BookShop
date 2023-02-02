@@ -18,7 +18,7 @@ import java.util.UUID;
                 @Tag(name = "Пример ресурса", description = "Пример описания ресурса")
         }
 )
-public interface ExampleResource {
+public interface BookResource {
 
     @Operation(summary = "Получение счета по идентификатору")
     @ApiResponses(value = {

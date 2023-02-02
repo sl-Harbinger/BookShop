@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import ru.testproj.book.backend.api.constant.UrlConstants;
 import ru.testproj.book.backend.api.dto.ExampleDto;
-import ru.testproj.book.backend.api.resource.ExampleResource;
+import ru.testproj.book.backend.api.resource.BookResource;
 
 
 import javax.validation.Valid;
@@ -19,7 +19,7 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping(UrlConstants.MAIN_URL)
-public class ExampleResourceImpl implements ExampleResource {
+public class BookResourceImpl implements BookResource {
 
     private List<ExampleDto> proverka = new ArrayList<>();
     @Override
@@ -31,9 +31,6 @@ public class ExampleResourceImpl implements ExampleResource {
            }
 
         }
-
-
-
         return null;
     }
 
