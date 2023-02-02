@@ -18,7 +18,7 @@
             <column name="id_publisher" type="uuid" remarks="связь id с издательством"/>
             <column name="id_author" type="uuid" remarks="связь id с автором"/>
             <column name="title" type="VARCHAR(255)" remarks="название книги"/>
-            <column name="price" type="double" remarks="цена"/>
+            <column name="price" type="currency" remarks="цена"/>
         </createTable>
         <rollback>
             <dropTable tableName="${prefix}_book"/>

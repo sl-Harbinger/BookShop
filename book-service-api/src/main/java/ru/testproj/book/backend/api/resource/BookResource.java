@@ -1,7 +1,6 @@
 package ru.testproj.book.backend.api.resource;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -9,10 +8,10 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.http.ResponseEntity;
-import ru.testproj.book.backend.api.dto.ExampleDto;
+import ru.testproj.book.backend.api.dto.BookDto;
 
-import javax.validation.constraints.NotNull;
-import java.util.UUID;
+import java.util.List;
+
 @Tags(
         value = {
                 @Tag(name = "Пример ресурса", description = "Пример описания ресурса")
@@ -20,21 +19,17 @@ import java.util.UUID;
 )
 public interface BookResource {
 
-    @Operation(summary = "Получение счета по идентификатору")
+    @Operation(summary = "получение всех книг")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Счет найден",
+            @ApiResponse(responseCode = "200", description = "книги получены",
                     content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ExampleDto.class)) }),
-            @ApiResponse(responseCode = "400", description = "Предоставлен неверный идентификатор",
+                            schema = @Schema(implementation = BookDto.class)) }),
+            @ApiResponse(responseCode = "500", description = "счто то пошло не так",
                     content = @Content),
-            @ApiResponse(responseCode = "404", description = "Счет по заданному идентификатору не найден",
+            @ApiResponse(responseCode = "404", description = "не найдено",
                     content = @Content) })
-    ResponseEntity<ExampleDto> getExampleByID(@Parameter(description = "Идентификатор счета для поиска") @NotNull UUID uuid);
+    ResponseEntity<List<BookDto>> getBookAll();
 
-    @Operation(summary = "Создание счета")
-    @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Счет создан",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ExampleDto.class)) }) })
-    ExampleDto createExample(ExampleDto exampleDto);
+
+
 }

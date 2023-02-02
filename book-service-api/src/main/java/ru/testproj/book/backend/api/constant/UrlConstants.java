@@ -5,4 +5,6 @@ import lombok.experimental.UtilityClass;
 public class UrlConstants {
 
     public static final String MAIN_URL = "/book-service";
+    public static final String BOOK = "/book";
+
 }
