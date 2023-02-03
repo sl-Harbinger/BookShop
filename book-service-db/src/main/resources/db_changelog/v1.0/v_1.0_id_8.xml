@@ -5,20 +5,20 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_8.1_module_book-service_connect_publisher\book_date_01022023.xml" author="${author}">
+    <changeSet id="v_1.0_id_8.1_module_book-service_connect_author\book_date_31012023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
-            <tableExists tableName="db_book_book"/>
-            <tableExists tableName="db_book_publisher"/>
+                <tableExists tableName="db_book_book"/>
+                <tableExists tableName="db_book_author"/>
         </preConditions>
-        <!--откуда, что, куда, к чему    -->
-        <addForeignKeyConstraint baseTableName="db_book_book"
-                                 baseColumnNames="id_publisher"
-                                 constraintName="fk_db_book_book_id_publisher_db_book_publisher_id"
-                                 referencedTableName="db_book_publisher"
-                                 referencedColumnNames="id"/>
+        <!--    -->
+            <addForeignKeyConstraint baseTableName="db_book_book"
+                                     baseColumnNames="id_author"
+                                     constraintName="fk_db_book_book_id_author_db_book_author_id"
+                                     referencedTableName="db_book_author"
+                                     referencedColumnNames="id"/>
         <rollback>
-            <dropForeignKeyConstraint baseTableName="book"
-                                      constraintName="fk_id_author_book"/>
+            <dropForeignKeyConstraint baseTableName="db_book_book"
+                                      constraintName="fk_db_book_book_id_author_db_book_author_id"/>
 
         </rollback>
     </changeSet>
