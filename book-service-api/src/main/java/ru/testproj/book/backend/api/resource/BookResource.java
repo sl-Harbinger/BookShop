@@ -32,4 +32,18 @@ public interface BookResource {
 
 
 
+    @Operation(summary = "получение книги по Id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "книга получена",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class)) }),
+            @ApiResponse(responseCode = "500", description = "счто то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content) })
+    ResponseEntity<List<BookDto>> getBookId();
+
+
+
+
 }

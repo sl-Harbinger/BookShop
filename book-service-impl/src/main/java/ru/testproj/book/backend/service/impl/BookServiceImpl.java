@@ -31,13 +31,13 @@ public class BookServiceImpl implements BookService {
             dto.setTitle(book.getTitle());
             dto.setId(book.getId().toString()); //ооп
             dto.setPrice(book.getPrice());
+            dto.setAuthor(book.getId_author().toString());
+            dto.setPublisher(book.getId_publisher().toString());
             dtos.add(dto);
         }
 
         return dtos;
     }
 
-
-String ffff = "ghr";
 
 }

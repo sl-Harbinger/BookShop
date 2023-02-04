@@ -37,13 +37,14 @@ public class BookResourceImpl implements BookResource {
     public ResponseEntity<List<BookDto>> getBookAll() {
         List<BookDto> bookAll = bookService.getAll();
 
-
-
         return ResponseEntity.ok(bookAll);
     }
 
-
-
+    @Override
+    @GetMapping("/id")
+    public ResponseEntity<List<BookDto>> getBookId() {
+        return null;
+    }
 
 
 }

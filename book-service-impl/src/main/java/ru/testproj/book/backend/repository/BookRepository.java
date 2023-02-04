@@ -12,8 +12,8 @@ import java.util.UUID;
 @Repository
 public interface BookRepository extends JpaRepository<Book, UUID> {
 
-    @Query(value = "SELECT  b.id, b.title, b.price\n" +
-            "from schema_book.db_book_book b",nativeQuery = true)
+    @Query(value = "SELECT  b.id, b.id_publisher, b.id_author, b.title, b.price\n" +
+            "from db_book_book b " ,nativeQuery = true)
     List<Book> getAll();
 
 

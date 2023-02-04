@@ -2,10 +2,7 @@ package ru.testproj.book.backend.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -20,10 +17,11 @@ public class Book {
     @GeneratedValue(generator = "uuid2")
     private UUID id;
 
-    // заглушки
-
+    private UUID id_author;
+    private UUID id_publisher;
     private String title;
     private BigDecimal price;
+
 
 
 
