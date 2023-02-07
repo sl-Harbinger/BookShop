@@ -12,7 +12,7 @@
             </not>
         </preConditions>
         <createTable tableName="${prefix}_seller" remarks="таблица продавцы">
-            <column name="id" type="uuid" remarks="поле для связи id с заказом">
+            <column name="id" type="uuid" remarks="поле для связи с заказом">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)" remarks="ФИО продавца"/>

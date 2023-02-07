@@ -12,11 +12,11 @@
             </not>
         </preConditions>
         <createTable tableName="${prefix}_book" remarks="таблица книг">
-            <column name="id" type="uuid" remarks="поле для связи по id с заказам">
+            <column name="id" type="uuid" remarks="поле для связи с заказам">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="id_publisher" type="uuid" remarks="связь id с издательством"/>
-            <column name="id_author" type="uuid" remarks="связь id с автором"/>
+            <column name="publisher" type="uuid" remarks="связь с издательством"/>
+            <column name="author" type="uuid" remarks="связь с автором"/>
             <column name="title" type="VARCHAR(255)" remarks="название книги"/>
             <column name="price" type="currency" remarks="цена"/>
         </createTable>

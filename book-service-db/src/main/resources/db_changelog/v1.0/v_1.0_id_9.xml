@@ -12,13 +12,13 @@
         </preConditions>
         <!--откуда, что, куда, к чему    -->
         <addForeignKeyConstraint baseTableName="db_book_book"
-                                 baseColumnNames="id_publisher"
-                                 constraintName="fk_db_book_book_id_publisher_db_book_publisher_id"
+                                 baseColumnNames="publisher"
+                                 constraintName="fk_db_book_book_publisher_db_book_publisher_id"
                                  referencedTableName="db_book_publisher"
                                  referencedColumnNames="id"/>
         <rollback>
             <dropForeignKeyConstraint baseTableName="db_book_book"
-                                      constraintName="fk_db_book_book_id_publisher_db_book_publisher_id"/>
+                                      constraintName="fk_db_book_book_publisher_db_book_publisher_id"/>
 
         </rollback>
     </changeSet>

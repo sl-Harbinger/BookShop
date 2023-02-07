@@ -17,12 +17,15 @@ public class Book {
     @GeneratedValue(generator = "uuid2")
     private UUID id;
 
-    private UUID id_author;
-    private UUID id_publisher;
+    @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "author", referencedColumnName = "id")
+    private Author author;
+    @ManyToOne(targetEntity = Publisher.class, fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher", referencedColumnName = "id")
+    private Publisher publisher;
+
     private String title;
     private BigDecimal price;
-
-
 
 
 }

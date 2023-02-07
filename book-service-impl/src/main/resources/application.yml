@@ -17,6 +17,8 @@ spring:
     drop-first: false
     user: postgres
     password: postgres
+  jpa:
+    show-sql: true
 
 springdoc:
   api-docs:
@@ -26,4 +28,5 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+
 

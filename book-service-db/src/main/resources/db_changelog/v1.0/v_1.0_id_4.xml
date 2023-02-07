@@ -15,9 +15,9 @@
             <column name="id" type="uuid" remarks="поле № заказа">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="id_seller" type="uuid" remarks="связь id с продавцом"/>
-            <column name="id_customer" type="uuid" remarks="связь id с покупателем"/>
-            <column name="id_book" type="uuid" remarks="связь id с книгой"/>
+            <column name="seller" type="uuid" remarks="связь с продавцом"/>
+            <column name="customer" type="uuid" remarks="связь с покупателем"/>
+            <column name="book" type="uuid" remarks="связь с книгой"/>
             <column name="data" type="date" remarks="дата заказа"/>
             <column name="number" type="int" remarks="кол-во книг"/>
         </createTable>

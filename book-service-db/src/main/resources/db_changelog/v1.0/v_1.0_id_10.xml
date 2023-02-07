@@ -17,7 +17,7 @@
                              referencedTableName="db_book_book"
                              referencedColumnNames="id"/>
         <rollback>
-            <dropForeignKeyConstraint baseTableName="b_book_union"
+            <dropForeignKeyConstraint baseTableName="db_book_union"
                                   constraintName="fk_db_book_union_book_db_book_book_id"/>
 
         </rollback>

@@ -15,8 +15,8 @@
             <column name="id" type="uuid" remarks="поле id">
                 <constraints primaryKey="true"/>
             </column>
-            <column name="book" type="uuid" remarks="связь id с книгой"/>
-            <column name="order" type="uuid" remarks="связь id с продажей"/>
+            <column name="book" type="uuid" remarks="связь с книгой"/>
+            <column name="order" type="uuid" remarks="связь с продажей"/>
         </createTable>
         <rollback>
             <dropTable tableName="${prefix}_union"/>
