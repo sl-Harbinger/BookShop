@@ -16,13 +16,13 @@ import java.util.UUID;
 public interface BookRepository extends JpaRepository<Book, UUID> {
 
     @Query("SELECT b FROM Book b JOIN FETCH b.author JOIN fetch b.publisher")
-    List<Book> getAll();
+    List<Book> getBookAll();
 
 
 
-//    // книга по id
-//    @Query("select b from Book b JOIN FETCH  = :Id")
-//    Book getBookId(@Param("Id") UUID id);
+    // книга по id
+    @Query("select b from Book b")
+    Book getBookId(UUID id);
 
 
 }

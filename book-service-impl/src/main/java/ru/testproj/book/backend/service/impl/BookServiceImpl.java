@@ -1,5 +1,7 @@
 package ru.testproj.book.backend.service.impl;
 
+import liquibase.pro.packaged.B;
+import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.testproj.book.backend.api.dto.AuthorDto;
 import ru.testproj.book.backend.api.dto.BookDto;
@@ -47,8 +49,8 @@ public class BookServiceImpl implements BookService {
 
 
     @Override
-    public List<BookDto> getAll() {
-        List<Book> books = bookRepository.getAll();
+    public List<BookDto> getBookAll() {
+        List<Book> books = bookRepository.getBookAll();
         List<BookDto> dtos = new ArrayList<>();
 
         for (Book book:books) {
@@ -59,11 +61,18 @@ public class BookServiceImpl implements BookService {
 
 
 
-//    @Override
-//
-//    public BookDto getBookId() {
-//        return null;
-//  }
+    @Override
+
+    public BookDto getBookId(UUID id) {
+
+        List<Book> books = bookRepository.getBookAll();
+        for (Book book:books) {
+            if (book.getId()==id){
+                return createBookDto(book);
+            }
+        }
+        return null;
+  }
 
 
 

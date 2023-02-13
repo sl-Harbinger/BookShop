@@ -15,6 +15,7 @@ public class Book {
 
     @Id
     @GeneratedValue(generator = "uuid2")
+    @Column(name = "id")
     private UUID id;
 
     @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY)
@@ -24,7 +25,9 @@ public class Book {
     @JoinColumn(name = "publisher", referencedColumnName = "id")
     private Publisher publisher;
 
+    @Column(name = "title")
     private String title;
+    @Column(name = "price")
     private BigDecimal price;
 
 

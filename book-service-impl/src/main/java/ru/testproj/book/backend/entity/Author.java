@@ -13,8 +13,9 @@ public class Author {
 
     @Id
     @GeneratedValue(generator = "uuid2")
-
+    @Column(name = "id")
     private UUID id;
+    @Column(name = "name")
     private String name;
 
 

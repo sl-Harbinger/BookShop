@@ -2,10 +2,7 @@ package ru.testproj.book.backend.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Data
@@ -15,7 +12,10 @@ public class Publisher {
 
     @Id
     @GeneratedValue(generator = "uuid2")
+    @Column(name = "id")
     private UUID id;
+    @Column(name = "title")
     private String title;
+    @Column(name = "city")
     private String city;
 }
