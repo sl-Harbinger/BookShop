@@ -21,8 +21,8 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
 
 
     // книга по id
-    @Query("select b from Book b")
-    Book getBookId(UUID id);
+    @Query("select b from Book b JOIN FETCH b.author JOIN fetch b.publisher where b.id = :id")
+    Book findBookById(@Param("id") UUID id);
 
 
 }

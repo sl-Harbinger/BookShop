@@ -28,19 +28,25 @@ public class BookResourceImpl implements BookResource {
     @GetMapping("/all")
     public ResponseEntity<List<BookDto>> getBookAll() {
         List<BookDto> bookAll = bookService.getBookAll();
-
         return ResponseEntity.ok(bookAll);
     }
 
 
     @Override
-    @GetMapping("/id")
-    public ResponseEntity<BookDto> getBookId(UUID id) {
+    @GetMapping()
+
+    public ResponseEntity<BookDto> getBookId(@RequestParam UUID id) {
 
         BookDto bookDto = bookService.getBookId(id);
+
         return ResponseEntity.ok(bookDto);
     }
 
+    @Override
+    @PostMapping
+    public ResponseEntity<String> createBook(@RequestBody BookDto bookDto) {
 
+        return ResponseEntity.ok(bookService.createBook(bookDto));
+    }
 }
 

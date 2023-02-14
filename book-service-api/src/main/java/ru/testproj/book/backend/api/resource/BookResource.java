@@ -54,16 +54,18 @@ public interface BookResource {
     ResponseEntity<BookDto> getBookId(UUID id);
 
 
-//    @Operation(summary = "добавление книги")
-//    @ApiResponses(value = {
-//            @ApiResponse(responseCode = "200", description = "книга добавлена",
-//                    content = { @Content(mediaType = "application/json",
-//                            schema = @Schema(implementation = BookDto.class)) }),
-//            @ApiResponse(responseCode = "500", description = "что то пошло не так",
-//                    content = @Content),
-//            @ApiResponse(responseCode = "404", description = "не найдено",
-//                    content = @Content) })
-//    ResponseEntity<List<BookDto>> getBookId();
+    @Operation(summary = "добавление книги")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "книга добавлена",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class)) }),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content) })
+    ResponseEntity<String> createBook(BookDto bookDto);
+
+
 
 
 

@@ -3,6 +3,7 @@ package ru.testproj.book.backend.service.impl;
 import liquibase.pro.packaged.B;
 import org.springframework.boot.context.config.ConfigDataNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.testproj.book.backend.api.dto.AuthorDto;
 import ru.testproj.book.backend.api.dto.BookDto;
 import ru.testproj.book.backend.api.dto.PublisherDto;
@@ -47,12 +48,31 @@ public class BookServiceImpl implements BookService {
         return dto;
     }
 
+    private Book createEntity (BookDto bookDto){
+        Publisher publisher1 = new Publisher();
+        PublisherDto publisherDto = bookDto.getPublisher() ;
+        publisher1.setTitle(publisherDto.getTitle());
+        publisher1.setCity(publisherDto.getCity());
+
+        Author author1 = new Author();
+        AuthorDto authorDto = bookDto.getAuthor();
+        author1.setName(authorDto.getName());
+
+        Book book1 = new Book();
+        book1.setPrice(bookDto.getPrice());
+        book1.setTitle(bookDto.getTitle());
+        book1.setPublisher(publisher1);
+        book1.setAuthor(author1);
+
+        return book1;
+    }
+
 
     @Override
     public List<BookDto> getBookAll() {
         List<Book> books = bookRepository.getBookAll();
         List<BookDto> dtos = new ArrayList<>();
-
+//пагинация
         for (Book book:books) {
             dtos.add(createBookDto(book));
         }
@@ -64,16 +84,19 @@ public class BookServiceImpl implements BookService {
     @Override
 
     public BookDto getBookId(UUID id) {
-
-        List<Book> books = bookRepository.getBookAll();
-        for (Book book:books) {
-            if (book.getId()==id){
-                return createBookDto(book);
-            }
-        }
-        return null;
+        return createBookDto(bookRepository.findBookById(id));
   }
 
+    @Override
+    @Transactional
+    public String createBook(BookDto bookDto) {
+//        поиск автора и замапить if
 
 
+        Book book = createEntity(bookDto);
+
+        String id = bookRepository.save(book).getId().toString();
+
+        return id;
+    }
 }

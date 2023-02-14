@@ -18,10 +18,10 @@ public class Book {
     @Column(name = "id")
     private UUID id;
 
-    @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "author", referencedColumnName = "id")
     private Author author;
-    @ManyToOne(targetEntity = Publisher.class, fetch = FetchType.LAZY)
+    @ManyToOne(targetEntity = Publisher.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "publisher", referencedColumnName = "id")
     private Publisher publisher;
 
