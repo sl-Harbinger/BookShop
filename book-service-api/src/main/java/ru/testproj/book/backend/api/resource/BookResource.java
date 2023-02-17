@@ -35,13 +35,6 @@ public interface BookResource {
     ResponseEntity<List<BookDto>> getBookAll();
 
 
-
-//    @GetMapping("/{id}")
-//    ResponseEntity<BookDto> getBookId(UUID id);
-
-
-
-
     @Operation(summary = "получение книги по Id")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "книга получена",

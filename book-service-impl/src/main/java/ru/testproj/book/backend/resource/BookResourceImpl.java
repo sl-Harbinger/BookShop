@@ -33,7 +33,7 @@ public class BookResourceImpl implements BookResource {
 
 
     @Override
-    @GetMapping()
+    @GetMapping("/id")
 
     public ResponseEntity<BookDto> getBookId(@RequestParam UUID id) {
 
