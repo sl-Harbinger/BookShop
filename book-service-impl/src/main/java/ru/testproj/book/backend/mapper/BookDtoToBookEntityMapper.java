@@ -1,7 +1,7 @@
 package ru.testproj.book.backend.mapper;
 
 import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
+import org.mapstruct.Mapping;
 import ru.testproj.book.backend.api.dto.AuthorDto;
 import ru.testproj.book.backend.api.dto.BookDto;
 import ru.testproj.book.backend.api.dto.PublisherDto;
@@ -24,5 +24,7 @@ public interface BookDtoToBookEntityMapper {
     Publisher publisherDtoToAuthorEntity(PublisherDto publisherDto);
     PublisherDto publisherEntityToPublisherDto(Publisher publisher);
 
+    @Mapping(target = "author", ignore = true)
+    Book bookDtoToBook(BookDto bookDto);
 
 }

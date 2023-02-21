@@ -3,6 +3,7 @@ package ru.testproj.book.backend.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -25,8 +26,10 @@ public class Book {
     @JoinColumn(name = "publisher", referencedColumnName = "id")
     private Publisher publisher;
 
+    @Size(min = 2, max = 255)
     @Column(name = "title")
     private String title;
+
     @Column(name = "price")
     private BigDecimal price;
 
