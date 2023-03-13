@@ -13,15 +13,16 @@ import java.util.UUID;
 @Entity
 public class Book {
 
-
     @Id
     @GeneratedValue(generator = "uuid2")
     @Column(name = "id")
     private UUID id;
 
+    @Size(min = 2)
     @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "author", referencedColumnName = "id")
     private Author author;
+    @Size(min = 2)
     @ManyToOne(targetEntity = Publisher.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "publisher", referencedColumnName = "id")
     private Publisher publisher;

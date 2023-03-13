@@ -19,6 +19,12 @@ spring:
     password: postgres
   jpa:
     show-sql: true
+  activemq:
+    broker-url:
+  security:
+    user:
+      name: user
+      password: user
 
 springdoc:
   api-docs:
@@ -28,5 +34,6 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+
 
 

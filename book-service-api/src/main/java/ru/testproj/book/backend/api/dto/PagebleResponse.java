@@ -8,9 +8,9 @@ import java.util.List;
 
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class PagebleResponse {
-    int size;
+public class PagebleResponse<T> {
+    int elements;
     boolean hasMore;
-    List<BookDto> data;
+    List<T> data;
 
 }
