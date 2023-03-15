@@ -21,7 +21,7 @@
         <app.description>Book MS</app.description>
 
         <spring-boot.version>2.7.2</spring-boot.version>
-        <springdoc.version>1.6.9</springdoc.version>
+        <springdoc.version>1.6.14</springdoc.version>
 
         <postgresql.version>42.4.0</postgresql.version>
 
