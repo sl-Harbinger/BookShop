@@ -12,7 +12,5 @@ import java.util.UUID;
 public interface PublisherRepository extends JpaRepository<Publisher, UUID> {
 
     Optional<Publisher> findPublisherByTitleContainsIgnoreCaseAndCityContainsIgnoreCase(@Param("title") String title, @Param("city") String city);
-//    Optional<Publisher> findPublisherByCityContainsIgnoreCase(@Param("city") String city);
-
 
 }

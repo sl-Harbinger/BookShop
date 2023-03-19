@@ -1,10 +1,14 @@
 package ru.testproj.book.backend.entity;
 
+import liquibase.pro.packaged.O;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
+import java.util.List;
 import java.util.UUID;
 
 
@@ -18,11 +22,11 @@ public class Book {
     @Column(name = "id")
     private UUID id;
 
-    @Size(min = 2)
+
     @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "author", referencedColumnName = "id")
     private Author author;
-    @Size(min = 2)
+
     @ManyToOne(targetEntity = Publisher.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "publisher", referencedColumnName = "id")
     private Publisher publisher;
@@ -33,6 +37,8 @@ public class Book {
 
     @Column(name = "price")
     private BigDecimal price;
+
+
 
 
 }
