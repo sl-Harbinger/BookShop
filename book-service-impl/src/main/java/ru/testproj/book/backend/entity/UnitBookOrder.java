@@ -8,7 +8,7 @@ import javax.validation.constraints.Size;
 import java.util.UUID;
 
 @Data
-@Table(name = "db_book_unit_book_order")
+@Table(name = "db_book_union_book_order")
 @Entity
 @NoArgsConstructor
 public class UnitBookOrder {

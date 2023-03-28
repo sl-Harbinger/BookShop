@@ -15,6 +15,7 @@ import ru.testproj.book.backend.api.dto.PagebleResponse;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import java.awt.print.Book;
 import java.util.List;
 import java.util.UUID;
 
@@ -84,7 +85,5 @@ public interface BookResource {
             @ApiResponse(responseCode = "404", description = "не найдено",
                     content = @Content) })
     ResponseEntity<List<BookDto>> getBookAuthor(String string);
-
-
 
 }

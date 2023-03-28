@@ -5,7 +5,7 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_11.2_module_book-service_connect_order\union_date_01022023.xml" author="${author}">
+    <changeSet id="v_1.0_id_11.4_module_book-service_connect_order_union_date_22032023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <tableExists tableName="db_book_order"/>
             <tableExists tableName="db_book_union_book_order"/>
@@ -17,7 +17,7 @@
                              referencedTableName="db_book_order"
                              referencedColumnNames="id"/>
         <rollback>
-        <dropForeignKeyConstraint baseTableName="db_book_union_book_order"
+        <dropForeignKeyConstraint baseTableName="db_book_order"
                               constraintName="fk_db_book_union_book_order_db_book_order_id"/>
         </rollback>
     </changeSet>

@@ -5,10 +5,10 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_12.1_module_book-service_connect_order\seller_date_01022023.xml" author="${author}">
+    <changeSet id="v_1.0_id_12.5_module_book-service_connect_order_seller_date_01022023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <tableExists tableName="db_book_order"/>
-            <tableExists tableName="db_book_book"/>
+            <tableExists tableName="db_book_seller"/>
         </preConditions>
     <!--откуда, что, куда, к чему    -->
         <sql>

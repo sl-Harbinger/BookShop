@@ -2,6 +2,7 @@ package ru.testproj.book.backend.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,6 +22,7 @@ import ru.testproj.book.backend.repository.PublisherRepository;
 import ru.testproj.book.backend.service.BookService;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -36,8 +38,8 @@ public class BookServiceImpl implements BookService {
     private final AuthorRepository authorRepository;
 
 
-
-    @Override       //вывод всех книг + пагинация
+    //вывод всех книг + пагинация
+    @Override
     public PagebleResponse<BookDto> getBookAll(int page, int elements) {
         Pageable pageable = PageRequest.of(page, elements);
         Page<Book> books = bookRepository.getAllBy(pageable);
@@ -49,13 +51,6 @@ public class BookServiceImpl implements BookService {
                         .map(bookMapper::bookEntityToBookDto)
                         .collect(Collectors.toList()))
                 .build();
-
-//        PagebleResponse<BookDto> pagebleResponse = new PagebleResponse<>();
-//        pagebleResponse.setElements((int) books.getTotalElements());
-//        pagebleResponse.setHasMore(books.hasNext());
-//        pagebleResponse.setData(books.stream()
-//                .map(bookMapper::bookEntityToBookDto)
-//                .collect(Collectors.toList()));
         return pagebleResponse;
 
     }
@@ -69,7 +64,6 @@ public class BookServiceImpl implements BookService {
     //поиск книги по названию
     @Override
     public List<BookDto> getBookTitle(String title) {
-
         return bookRepository.findBookByTitleContainsIgnoreCase(title).stream()
                 .map(bookMapper::bookEntityToBookDto)
                 .collect(Collectors.toList());
@@ -81,42 +75,37 @@ public class BookServiceImpl implements BookService {
     @Override
     public String createBook(BookDto bookDto) {
         Book newBook = bookMapper.bookDtoToBook(bookDto);
-
-//        проверка автора, если есть подсунуть с БД, иначе новый
         String author = bookDto.getAuthor().getName();
+        String title = bookDto.getPublisher().getTitle();
+        String city = bookDto.getPublisher().getCity();
+        String titleBook = bookDto.getTitle();
+        Book book = bookRepository.getBook(titleBook, city, title, author);
+//                проверка автора, если есть подсунуть с БД, иначе новый
         Author newAuthor = authorRepository.findAuthorByNameContainsIgnoreCase(author)
                 .orElse(authorMapper.authorDtoToAuthorEntity(bookDto.getAuthor()));
 //        проверка издательства, если есть подсунуть с БД, иначе новый
-        String title = bookDto.getPublisher().getTitle();
-        String city = bookDto.getPublisher().getCity();
         Publisher newPublisher = publisherRepository.findPublisherByTitleContainsIgnoreCaseAndCityContainsIgnoreCase(title, city)
                 .orElse(publisherMapper.publisherDtoToPublisherEntity(bookDto.getPublisher()));
-//        Проверка названия
-        String titleBook = bookDto.getTitle();
-        Book bookTitle = bookRepository.getBookTitle(titleBook);
-
-        if (newAuthor.getId() != null & newPublisher.getId() !=null & bookTitle.getTitle()!=null ){
-            return "Болт";
-        }
-
         newBook.setAuthor(newAuthor);
         newBook.setPublisher(newPublisher);
-        log.info("книга создана");
-        // if (newBook==bookDto) это дубль
-        return bookRepository.save(newBook).getId().toString();
+        if (book == null) {
+            log.info("книга создана");
+            return bookRepository.save(newBook).getId().toString();
+        } else if (newBook.compareTo(book) == 0) {
+            log.info("книга уже есть");
+            return "Книга есть";
+        }
+        return "болт";
     }
-
 
     //          поиск книги по автору
     @Override
     public List<BookDto> getBookAuthor(String author) {
         Author author1 = authorRepository.findAuthorByNameContainsIgnoreCase(author)
                 .orElseThrow(() -> new NotFoundException("Автора нет"));
-
         return author1.getBook().stream()
                 .map(bookMapper::bookEntityToBookDto)
                 .collect(Collectors.toList());
     }
-
 
 }

@@ -1,13 +1,8 @@
 package ru.testproj.book.backend.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
-
 import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -22,6 +17,12 @@ public class Order {
     @Column(name = "id")
     private UUID id;
 
+    @Column(name = "data")
+    private Date data;
+
+    @Column(name = "number")
+    private Integer number;
+
     @ManyToOne(targetEntity = Seller.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "seller", referencedColumnName = "id")
     private Seller seller;
@@ -31,15 +32,9 @@ public class Order {
     private Customer customer;
 
     @ManyToMany(targetEntity = Book.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "book", referencedColumnName = "id")
+    @JoinTable(name = "db_book_union_book_order",
+            joinColumns = @JoinColumn(name = "order"),
+            inverseJoinColumns = @JoinColumn(name = "book"))
     private List<Book> book;
-
-    @Column(name = "data")
-    private Date data;
-
-    @Column(name = "number")
-    private Integer number;
-
-
 
 }

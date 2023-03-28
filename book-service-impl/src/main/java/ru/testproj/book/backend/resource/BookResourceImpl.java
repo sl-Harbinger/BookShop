@@ -4,14 +4,13 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.testproj.book.backend.api.constant.UrlConstants;
-import ru.testproj.book.backend.api.dto.AuthorDto;
 import ru.testproj.book.backend.api.dto.BookDto;
 import ru.testproj.book.backend.api.dto.PagebleResponse;
 import ru.testproj.book.backend.api.resource.BookResource;
 import ru.testproj.book.backend.service.BookService;
 
+import java.awt.print.Book;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 
@@ -57,7 +56,6 @@ public class BookResourceImpl implements BookResource {
     public ResponseEntity<List<BookDto>> getBookAuthor(@RequestParam String author) {
         List<BookDto> bookDtoList = bookService.getBookAuthor(author);
         return ResponseEntity.ok(bookDtoList);
-
     }
 
 }

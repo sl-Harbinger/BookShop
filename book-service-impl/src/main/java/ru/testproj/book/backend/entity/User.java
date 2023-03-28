@@ -23,6 +23,7 @@ public class User {
     @Column(name = "login")
     private String login;
 
+    @Transient
     @Column(name = "password")
     private PasswordCallback password;
 
