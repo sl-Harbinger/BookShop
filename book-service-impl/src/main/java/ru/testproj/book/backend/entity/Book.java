@@ -1,18 +1,12 @@
 package ru.testproj.book.backend.entity;
 
-import liquibase.diff.ObjectDifferences;
-import liquibase.pro.packaged.O;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
-
 
 @EqualsAndHashCode
 @Data
@@ -24,7 +18,6 @@ public class Book implements Comparable<Book> {
     @GeneratedValue(generator = "uuid2")
     @Column(name = "id")
     private UUID id;
-
 
     @ManyToOne(targetEntity = Author.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "author", referencedColumnName = "id")
@@ -41,7 +34,6 @@ public class Book implements Comparable<Book> {
     @Size(min = 2, max = 255)
     @Column(name = "title")
     private String title;
-
 
     @Column(name = "price")
     private BigDecimal price;

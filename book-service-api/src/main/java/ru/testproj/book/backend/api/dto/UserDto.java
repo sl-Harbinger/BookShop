@@ -9,6 +9,8 @@ import java.util.UUID;
 public class UserDto {
     private UUID id;
     private String login;
-    private PasswordCallback password;
-    private Enum role;
+    private String password;
+    private Enum ERole;
+
+
 }

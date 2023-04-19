@@ -2,7 +2,6 @@ package ru.testproj.book.backend.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.ObjectUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -20,9 +19,7 @@ import ru.testproj.book.backend.repository.AuthorRepository;
 import ru.testproj.book.backend.repository.BookRepository;
 import ru.testproj.book.backend.repository.PublisherRepository;
 import ru.testproj.book.backend.service.BookService;
-
 import java.util.List;
-import java.util.Objects;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
@@ -43,7 +40,6 @@ public class BookServiceImpl implements BookService {
     public PagebleResponse<BookDto> getBookAll(int page, int elements) {
         Pageable pageable = PageRequest.of(page, elements);
         Page<Book> books = bookRepository.getAllBy(pageable);
-
         PagebleResponse<BookDto> pagebleResponse = PagebleResponse.<BookDto>builder()
                 .elements((int) books.getTotalElements())
                 .hasMore(books.hasNext())
@@ -52,7 +48,6 @@ public class BookServiceImpl implements BookService {
                         .collect(Collectors.toList()))
                 .build();
         return pagebleResponse;
-
     }
 
     //поиск по id книги
@@ -68,7 +63,6 @@ public class BookServiceImpl implements BookService {
                 .map(bookMapper::bookEntityToBookDto)
                 .collect(Collectors.toList());
     }
-
 
     //создание книги
 //    нужна проверка на дубль автор издание цена

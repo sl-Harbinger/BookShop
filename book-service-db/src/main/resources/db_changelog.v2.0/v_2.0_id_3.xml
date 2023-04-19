@@ -1,0 +1,25 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="prefix" value="db_book"/>
+    <property name="author" value="Slava"/>
+
+    <changeSet id="v_2.0_id_3.9_module_book-service_table_role_union_user_date_14042023.xml" author="${author}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="${prefix}_union_user_role"/>
+            </not>
+        </preConditions>
+        <createTable tableName="${prefix}_union_user_role" remarks="таблица связи пользователей и ролей(могие к многим)">
+            <column name="id" type="UUID" remarks="поле для связи пользоватедя с ролью">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="role" type="numeric" remarks="роль пользователя"/>
+            <column name="user" type="UUID" remarks="пользователь"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="${prefix}_union_user_role"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

@@ -21,10 +21,12 @@ spring:
     show-sql: true
   activemq:
     broker-url:
-  security:
-    user:
-      name: user
-      password: user
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp
+      suffix: .jsp
+
+
 
 springdoc:
   api-docs:
@@ -34,6 +36,7 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+
 
 
 
