@@ -1,24 +1,29 @@
 package ru.testproj.book.backend.entity;
 
-import lombok.Data;
-import javax.persistence.*;
-import javax.validation.constraints.Size;
-import java.util.List;
 
-@Entity
-@Data
-@Table(name = "db_book_role")
-public class Role{
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+import java.util.Set;
+import java.util.stream.Collectors;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role", length = 25)
-    private ERole name;
-    @ManyToMany (mappedBy ="role", fetch = FetchType.LAZY)
-    private List<User> users;
+public enum Role{
+    ROLE_USER(Set.of(Permission.READ)),
+    ROLE_ADMIN(Set.of(Permission.WRITE, Permission.READ));
 
+    private final Set<Permission> permissions;
+
+    Role(Set<Permission> permissions) {
+        this.permissions = permissions;
+    }
+
+    public Set<Permission> getPermissions(){
+        return permissions;
+    }
+
+    public Set<SimpleGrantedAuthority> getAuthority(){
+        return getPermissions().stream()
+                .map(permission -> new SimpleGrantedAuthority(permission.getPermission()))
+                .collect(Collectors.toSet());
+    }
 
 }

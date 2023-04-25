@@ -36,6 +36,10 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+jwt:
+  header: "Authorization"
+  secret: "proselyte"
+  expiration: 604800
 
 
 

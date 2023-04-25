@@ -2,6 +2,7 @@ package ru.testproj.book.backend.resource;
 
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import ru.testproj.book.backend.api.constant.UrlConstants;
 import ru.testproj.book.backend.api.dto.BookDto;
@@ -20,6 +21,7 @@ public class BookResourceImpl implements BookResource {
 
     //вывод всех книг
     @Override
+    @PreAuthorize("hasPermission('WRITE', 'READ')")
     @GetMapping("/all")
     public ResponseEntity<PagebleResponse<BookDto>> getBookAll(int page, int elements) {
         PagebleResponse<BookDto> bookAll = bookService.getBookAll(page, elements);

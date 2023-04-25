@@ -28,21 +28,8 @@ public class User {
     @Column(name = "password" )
     private String password;
 
+    @Enumerated(value = EnumType.STRING)
+    @Column(name = "role")
+    private Role role;
 
-    @ManyToMany(targetEntity = Role.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    @JoinTable(name = "db_book_union_user_role",
-            joinColumns = @JoinColumn(name = "user"),
-            inverseJoinColumns = @JoinColumn(name = "role"))
-
-    private List<Role> role;
-
-
-
-
-    public User(String login, String encode) {
-    }
-
-    public User() {
-
-    }
 }
