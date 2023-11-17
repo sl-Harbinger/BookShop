@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import javax.security.auth.callback.PasswordCallback;
 import javax.validation.constraints.Size;
+import java.util.Collection;
 import java.util.UUID;
-import ru.testproj.book.backend.role.Role;
 
 @Data
 @Table(name = "db_book_user")
@@ -27,7 +27,10 @@ public class User {
     @Column(name = "password")
     private PasswordCallback password;
 
-    @Column(name = "role")
-    private Role role;
-
+    @ManyToMany(targetEntity = User.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "db_book_union__user_role",
+            joinColumns = @JoinColumn(name = "user"),
+            inverseJoinColumns = @JoinColumn(name = "role"))
+    private Collection<Role> roles;
 }
