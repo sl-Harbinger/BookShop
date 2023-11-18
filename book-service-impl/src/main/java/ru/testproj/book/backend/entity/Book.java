@@ -1,15 +1,11 @@
 package ru.testproj.book.backend.entity;
 
-import liquibase.diff.ObjectDifferences;
-import liquibase.pro.packaged.O;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
-import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 

@@ -1,12 +1,14 @@
 package ru.testproj.book.backend.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.security.auth.callback.PasswordCallback;
 import javax.validation.constraints.Size;
 import java.util.Collection;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -27,10 +29,13 @@ public class User {
     @Column(name = "password")
     private PasswordCallback password;
 
-    @ManyToMany(targetEntity = User.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+
+    @ManyToMany
     @JoinTable(
-            name = "db_book_union__user_role",
-            joinColumns = @JoinColumn(name = "user"),
-            inverseJoinColumns = @JoinColumn(name = "role"))
+            name = "db_book_union_user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
     private Collection<Role> roles;
+
 }

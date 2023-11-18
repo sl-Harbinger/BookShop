@@ -1,13 +1,16 @@
 package ru.testproj.book.backend.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Collection;
+import java.util.List;
 
 @Data
 @Entity
-@Table(name = "role")
+@Table(name = "db_book_role")
 public class Role {
 
     @Id
@@ -15,7 +18,6 @@ public class Role {
     @Column(name = "id")
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "role")
-    private EnamRole role;
+    @Column(name = "name")
+    private String name;
 }

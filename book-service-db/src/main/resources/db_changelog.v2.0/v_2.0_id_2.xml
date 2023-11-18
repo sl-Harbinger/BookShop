@@ -5,7 +5,7 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_2.0_id_2.3_module_book-service_table_role_date_18112023.xml" author="${author}">
+    <changeSet id="v_2.0_id_2.5_module_book-service_table_role_date_18112023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${prefix}_role"/>

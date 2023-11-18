@@ -10,6 +10,6 @@
     <include file="v_2.0_id_2.xml" relativeToChangelogFile="true"/>
     <include file="v_2.0_id_3.xml" relativeToChangelogFile="true"/>
     <include file="v_2.0_id_4.xml" relativeToChangelogFile="true"/>
-
+    <include file="v_2.0_id_5.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
