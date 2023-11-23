@@ -35,5 +35,7 @@ springdoc:
     show-extensions: true
     show-common-extensions: true
 
-
+jwt:
+  secret: book_demo
+  lifetime: 30m
 

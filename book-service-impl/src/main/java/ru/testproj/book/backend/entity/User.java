@@ -27,7 +27,7 @@ public class User {
 
     @Transient
     @Column(name = "password")
-    private PasswordCallback password;
+    private String password;
 
 
     @ManyToMany
