@@ -22,12 +22,15 @@ public class User {
     private UUID id;
 
     @Size(min = 2, max = 255)
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username")
+    private String username;
 
-    @Transient
+//    @Transient
     @Column(name = "password")
     private String password;
+
+    @Column(name = "email")
+    private String email;
 
 
     @ManyToMany

@@ -4,6 +4,7 @@ package ru.testproj.book.backend.security;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -15,7 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-
+@Slf4j
 @Component
 public class JwtTokenUtils {
     @Value("${jwt.secret}")
@@ -33,6 +34,8 @@ public class JwtTokenUtils {
 
         claims.put("roles", roleList);
 
+        log.info(roleList.toString());
+
         Date issuedDate = new Date();
         Date expiredDate = new Date(issuedDate.getTime() + jwtLifetime.toMillis());
         return Jwts.builder()
@@ -45,16 +48,15 @@ public class JwtTokenUtils {
 
     }
 
-    public String getUsername(String token){
+    public String getUsername(String token) {
         return getAllClaimsFromToken(token).getSubject();
     }
 
-    public List<String> getRoles(String token){
+    public List<String> getRoles(String token) {
         return getAllClaimsFromToken(token).get("roles", List.class);
     }
 
-
-    private Claims getAllClaimsFromToken(String token){
+    private Claims getAllClaimsFromToken(String token) {
         return Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)

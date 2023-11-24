@@ -9,8 +9,8 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 public class UserDto {
-    private UUID id;
-    private String login;
+//    private UUID id;
+    private String username;
     private String email;
     private String role;
 }

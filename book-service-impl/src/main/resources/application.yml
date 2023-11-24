@@ -21,10 +21,10 @@ spring:
     show-sql: true
   activemq:
     broker-url:
-  security:
-    user:
-      name: user
-      password: user
+#  security:
+#    user:
+#      name: user
+#      password: user
 
 springdoc:
   api-docs:
