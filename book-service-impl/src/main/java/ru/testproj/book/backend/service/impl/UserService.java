@@ -3,6 +3,7 @@ package ru.testproj.book.backend.service.impl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,10 +23,12 @@ import java.util.stream.Collectors;
 
 @Slf4j
 @Service
+
 public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private RoleService roleService;
-//    private PasswordEncoder passwordEncoder;
+
+
 
     @Autowired
     public void setUserRepository(UserRepository userRepository) {
@@ -37,10 +40,6 @@ public class UserService implements UserDetailsService {
         this.roleService = roleService;
     }
 
-//    @Autowired
-//    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
-//        this.passwordEncoder = passwordEncoder;
-//    }
 
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);

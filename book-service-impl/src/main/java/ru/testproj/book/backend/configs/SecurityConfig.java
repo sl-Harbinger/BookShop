@@ -24,6 +24,7 @@ public class SecurityConfig {
     private UserService userService;
     private JwtRequestFilter jwtRequestFilter;
 
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
