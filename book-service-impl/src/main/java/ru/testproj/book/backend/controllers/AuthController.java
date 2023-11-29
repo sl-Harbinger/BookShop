@@ -31,10 +31,10 @@ public class AuthController {
         return authService.createAuthToken(authRequest);
     }
 
-//    @PostMapping("/registration")
-//    public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
-//        return authService.createNewUser(registrationUserDto);
-//    }
+    @PostMapping("/registration")
+    public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
+        return authService.createNewUser(registrationUserDto);
+    }
 
 
 }

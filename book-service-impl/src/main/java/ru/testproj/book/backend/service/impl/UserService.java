@@ -27,6 +27,7 @@ import java.util.stream.Collectors;
 public class UserService implements UserDetailsService {
     private UserRepository userRepository;
     private RoleService roleService;
+    private PasswordEncoder passwordEncoder;
 
 
 
@@ -38,6 +39,11 @@ public class UserService implements UserDetailsService {
     @Autowired
     public void setRoleService(RoleService roleService) {
         this.roleService = roleService;
+    }
+
+    @Autowired
+    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -58,13 +64,13 @@ public class UserService implements UserDetailsService {
         );
     }
 
-//    public User createNewUser(RegistrationUserDto registrationUserDto) {
-//        User user = new User();
-//        user.setUsername(registrationUserDto.getUsername());
-//        user.setEmail(registrationUserDto.getEmail());
-//        user.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
-//        user.setRoles(List.of(roleService.getUserRole()));
-//        return userRepository.save(user);
-//    }
+    public User createNewUser(RegistrationUserDto registrationUserDto) {
+        User user = new User();
+        user.setUsername(registrationUserDto.getUsername());
+        user.setEmail(registrationUserDto.getEmail());
+        user.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
+        user.setRoles(List.of(roleService.getUserRole()));
+        return userRepository.save(user);
+    }
 
 }

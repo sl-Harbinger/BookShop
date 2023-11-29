@@ -21,10 +21,9 @@ spring:
     show-sql: true
   activemq:
     broker-url:
-#  security:
-#    user:
-#      name: user
-#      password: user
+  main:
+    allow-circular-references: true
+
 
 springdoc:
   api-docs:

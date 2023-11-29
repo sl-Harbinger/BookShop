@@ -27,7 +27,8 @@ public class MainController {
 
     @GetMapping("/info")
     public String userDate(Principal principal){
-        return principal.getName();
+
+       return principal.getName()  ;
     }
 
 

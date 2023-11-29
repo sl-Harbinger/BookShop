@@ -20,6 +20,8 @@ import ru.testproj.book.backend.api.dto.*;
 import ru.testproj.book.backend.entity.User;
 import ru.testproj.book.backend.security.JwtTokenUtils;
 
+import java.util.stream.Collectors;
+
 
 @Service
 @RequiredArgsConstructor
@@ -38,16 +40,16 @@ public class AuthService {
         String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
-//    public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
-//        if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
-//            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пароли не совпадают"), HttpStatus.BAD_REQUEST);
-//        }
-//        if (userService.findByUsername(registrationUserDto.getUsername()).isPresent()) {
-//            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным именем уже существует"), HttpStatus.BAD_REQUEST);
-//        }
-//        User user = userService.createNewUser(registrationUserDto);
-//        return ResponseEntity.ok(new UserDto(user.getUsername(), user.getEmail(), user.getPassword()));
-//    }
+    public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
+        if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пароли не совпадают"), HttpStatus.BAD_REQUEST);
+        }
+        if (userService.findByUsername(registrationUserDto.getUsername()).isPresent()) {
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным именем уже существует"), HttpStatus.BAD_REQUEST);
+        }
+        User user = userService.createNewUser(registrationUserDto);
+        return ResponseEntity.ok(new UserDto(user.getUsername(), user.getEmail(), user.getPassword()));
+    }
 
 
 
