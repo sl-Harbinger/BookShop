@@ -6,7 +6,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 import ru.testproj.book.backend.entity.Author;
-import ru.testproj.book.backend.entity.Book;
 
 import java.util.Optional;
 import java.util.UUID;

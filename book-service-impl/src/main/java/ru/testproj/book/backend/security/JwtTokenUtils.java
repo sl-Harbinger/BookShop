@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
 @Slf4j
 @Component
 public class JwtTokenUtils {
@@ -25,17 +26,14 @@ public class JwtTokenUtils {
     @Value("${jwt.lifetime}")
     private Duration jwtLifetime;
 
-
-    public String generateToken(UserDetails userDetails){
+    //формирование токина на списка ролей, пользователя даты и даты окончания алгоритм шифрования
+    public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
         List<String> roleList = userDetails.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
                 .collect(Collectors.toList());
-
         claims.put("roles", roleList);
-
         log.info(roleList.toString());
-
         Date issuedDate = new Date();
         Date expiredDate = new Date(issuedDate.getTime() + jwtLifetime.toMillis());
         return Jwts.builder()
@@ -45,7 +43,6 @@ public class JwtTokenUtils {
                 .setExpiration(expiredDate)
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
-
     }
 
     public String getUsername(String token) {

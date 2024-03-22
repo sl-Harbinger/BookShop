@@ -9,7 +9,6 @@ import ru.testproj.book.backend.api.dto.PagebleResponse;
 import ru.testproj.book.backend.api.resource.BookResource;
 import ru.testproj.book.backend.service.BookService;
 
-import java.awt.print.Book;
 import java.util.List;
 import java.util.UUID;
 
@@ -35,7 +34,8 @@ public class BookResourceImpl implements BookResource {
         BookDto bookDto = bookService.getBookId(id);
         return ResponseEntity.ok(bookDto);
     }
-// Поиск книги но названию
+
+    // Поиск книги но названию
     @Override
     @GetMapping("/title")
     public ResponseEntity<List<BookDto>> getBookTitle(@RequestParam String title) {
@@ -53,10 +53,14 @@ public class BookResourceImpl implements BookResource {
     // поиск по автору
     @Override
     @GetMapping("/author")
-    public ResponseEntity<List<BookDto>> getBookAuthor(@RequestParam String author) {
+    public ResponseEntity<String> getBookAuthor(@RequestParam String author) {
         List<BookDto> bookDtoList = bookService.getBookAuthor(author);
-        return ResponseEntity.ok(bookDtoList);
+        if (bookDtoList.isEmpty()){
+           return ResponseEntity.ok("Автор " + author + " не найден");
+        }
+        return ResponseEntity.ok(bookDtoList.toString() );
     }
+
 
 }
 

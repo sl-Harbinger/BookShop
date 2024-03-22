@@ -8,5 +8,6 @@ import ru.testproj.book.backend.entity.Author;
 public interface AuthorMapper {
 
     Author authorDtoToAuthorEntity(AuthorDto authorDto);
+
     AuthorDto authorEntityToauthorDto(Author author);
 }

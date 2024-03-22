@@ -3,4 +3,4 @@ include:
     file: /flow/ci-cdp/svc/jvm.yml
 
 variables:
-    SKIP_STAGE_DEPS: "true"
+  SKIP_STAGE_DEPS: "true"

@@ -9,6 +9,7 @@ import ru.testproj.book.backend.entity.Book;
 public interface BookMapper {
 
     Book bookDtoToBookEntity(BookDto bookDto);
+
     BookDto bookEntityToBookDto(Book book);
 
     @Mapping(target = "author", ignore = true)

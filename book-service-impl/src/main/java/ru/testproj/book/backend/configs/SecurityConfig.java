@@ -1,7 +1,6 @@
 package ru.testproj.book.backend.configs;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -19,11 +18,19 @@ import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import ru.testproj.book.backend.service.impl.UserService;
 
+
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
+    private final BCryptPasswordEncoder passwordEncoder1;
     private UserService userService;
     private JwtRequestFilter jwtRequestFilter;
+
+    @Autowired
+
+    public SecurityConfig(BCryptPasswordEncoder passwordEncoder1) {
+        this.passwordEncoder1 = passwordEncoder1;
+    }
 
 
     @Autowired
@@ -39,6 +46,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
+//                .authorizeHttpRequests(auth->auth
+//                        .requestMatchers("/admin/**").hasRole("ADMIN"));
+
                 .csrf().disable()
                 .cors().disable()
                 .authorizeRequests()
@@ -46,7 +56,7 @@ public class SecurityConfig {
                 .antMatchers("/info").authenticated()
                 .antMatchers("/admin").hasRole("ADMIN")
                 .antMatchers(HttpMethod.POST, "/book-service/book").hasRole("ADMIN")
-                .antMatchers("/book-service/book/all***").hasAnyRole("ADMIN", "USER")
+                .antMatchers("/book-service/***").hasAnyRole("ADMIN", "USER")
                 .anyRequest().permitAll()
                 .and()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
@@ -60,15 +70,15 @@ public class SecurityConfig {
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider() {
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
-        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder());
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder1);
         daoAuthenticationProvider.setUserDetailsService(userService);
         return daoAuthenticationProvider;
     }
 
-    @Bean
-    public BCryptPasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public BCryptPasswordEncoder passwordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {

@@ -7,12 +7,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.RequestParam;
-import ru.testproj.book.backend.entity.Author;
 import ru.testproj.book.backend.entity.Book;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -28,6 +25,7 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
     // книга по названию
     @Query("select b from Book b JOIN FETCH b.author JOIN fetch b.publisher where UPPER(b.title) = UPPER(:title)")
     Book getBookTitle(@Param("title") String title);
+
     List<Book> findBookByTitleContainsIgnoreCase(@Param("name") String name);
 
     @Query("select bo " +

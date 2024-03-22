@@ -6,7 +6,6 @@ import ru.testproj.book.backend.entity.Role;
 import ru.testproj.book.backend.repository.RoleRepository;
 
 
-
 @Service
 @RequiredArgsConstructor
 public class RoleService {

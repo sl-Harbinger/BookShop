@@ -7,15 +7,15 @@
 
     <changeSet id="v_1.0_id_8.1_module_book-service_connect_author\book_date_31012023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
-                <tableExists tableName="db_book_book"/>
-                <tableExists tableName="db_book_author"/>
+            <tableExists tableName="db_book_book"/>
+            <tableExists tableName="db_book_author"/>
         </preConditions>
         <!--    -->
-            <addForeignKeyConstraint baseTableName="db_book_book"
-                                     baseColumnNames="author"
-                                     constraintName="fk_db_book_book_author_db_book_author_id"
-                                     referencedTableName="db_book_author"
-                                     referencedColumnNames="id"/>
+        <addForeignKeyConstraint baseTableName="db_book_book"
+                                 baseColumnNames="author"
+                                 constraintName="fk_db_book_book_author_db_book_author_id"
+                                 referencedTableName="db_book_author"
+                                 referencedColumnNames="id"/>
         <rollback>
             <dropForeignKeyConstraint baseTableName="db_book_book"
                                       constraintName="fk_db_book_book_author_db_book_author_id"/>

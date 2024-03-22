@@ -1,6 +1,7 @@
 package ru.testproj.book.backend.api.constant;
 
 import lombok.experimental.UtilityClass;
+
 @UtilityClass
 public class UrlConstants {
 

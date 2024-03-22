@@ -1,12 +1,8 @@
 package ru.testproj.book.backend.entity;
 
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.List;
 
 @Data
 @Entity
@@ -18,6 +14,15 @@ public class Role {
     @Column(name = "id")
     private Long id;
 
+//
+//    @ManyToMany(fetch = FetchType.EAGER)
+//    @JoinTable(
+//            name = "db_book_union_user_role",
+//            joinColumns = @JoinColumn(name = "user_id"),
+//            inverseJoinColumns = @JoinColumn(name = "role_id")
+//    )
+//    private Collection<Name> name;
+    
     @Column(name = "name")
     private String name;
 }

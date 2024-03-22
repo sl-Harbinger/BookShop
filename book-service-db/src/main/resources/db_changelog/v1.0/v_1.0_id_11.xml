@@ -10,15 +10,15 @@
             <tableExists tableName="db_book_order"/>
             <tableExists tableName="db_book_union_book_order"/>
         </preConditions>
-    <!--откуда, что, куда, к чему    -->
+        <!--откуда, что, куда, к чему    -->
         <addForeignKeyConstraint baseTableName="db_book_union_book_order"
-                             baseColumnNames="order"
-                             constraintName="fk_db_book_union_book_order_db_book_order_id"
-                             referencedTableName="db_book_order"
-                             referencedColumnNames="id"/>
+                                 baseColumnNames="order"
+                                 constraintName="fk_db_book_union_book_order_db_book_order_id"
+                                 referencedTableName="db_book_order"
+                                 referencedColumnNames="id"/>
         <rollback>
-        <dropForeignKeyConstraint baseTableName="db_book_order"
-                              constraintName="fk_db_book_union_book_order_db_book_order_id"/>
+            <dropForeignKeyConstraint baseTableName="db_book_order"
+                                      constraintName="fk_db_book_union_book_order_db_book_order_id"/>
         </rollback>
     </changeSet>
 </databaseChangeLog>

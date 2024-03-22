@@ -21,8 +21,8 @@ spring:
     show-sql: true
   activemq:
     broker-url:
-  main:
-    allow-circular-references: true
+#  main:
+#    allow-circular-references: true  # не тестирует циклическую зависимость бин
 
 
 springdoc:
