@@ -5,20 +5,20 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_10.1_module_book-service_connect_order\seller_date_01022023.xml" author="${author}">
+    <changeSet id="v_1.0_id_10.4_module_book-service_connect_book\union_date_22032023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
-            <tableExists tableName="db_book_order"/>
             <tableExists tableName="db_book_book"/>
+            <tableExists tableName="db_book_union_book_order"/>
         </preConditions>
-    <!--откуда, что, куда, к чему    -->
-        <sql>
-        alter table schema_book.db_book_order
-        add constraint fk_db_book_order_db_book_seller_id
-        foreign key (id_seller) references schema_book.db_book_seller (id);
-        </sql>
+        <!--откуда, что, куда, к чему    -->
+        <addForeignKeyConstraint baseTableName="db_book_union_book_order"
+                                 baseColumnNames="book"
+                                 constraintName="fk_db_book_id_db_book_union_book_order_book"
+                                 referencedTableName="db_book_book"
+                                 referencedColumnNames="id"/>
         <rollback>
-            <dropForeignKeyConstraint baseTableName="db_book_order"
-                                  constraintName="fk_db_book_order_db_book_seller_id"/>
+            <dropForeignKeyConstraint baseTableName="db_book_book"
+                                      constraintName="fk_db_book_id_db_book_union_book_order_book"/>
 
         </rollback>
     </changeSet>

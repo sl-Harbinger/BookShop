@@ -1,0 +1,26 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <property name="prefix" value="db_book"/>
+    <property name="author" value="Slava"/>
+
+    <changeSet id="v_2.0_id_2.5_module_book-service_table_role_date_18112023.xml" author="${author}">
+        <preConditions onFail="MARK_RAN">
+            <not>
+                <tableExists tableName="${prefix}_role"/>
+            </not>
+        </preConditions>
+        <createTable tableName="${prefix}_role" remarks="таблица ролей">
+            <column name="id" type="serial" remarks="номер роли">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(50)" remarks="роль"/>
+        </createTable>
+        <rollback>
+            <dropTable tableName="${prefix}_role"/>
+        </rollback>
+    </changeSet>
+
+
+</databaseChangeLog>

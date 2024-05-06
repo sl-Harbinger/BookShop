@@ -5,18 +5,20 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
-
-    <include file="v_1.0_id_1.xml" relativeToChangelogFile="true"/>
-    <include file="v_1.0_id_2.xml" relativeToChangelogFile="true"/>
-    <include file="v_1.0_id_3.xml" relativeToChangelogFile="true"/>
-    <include file="v_1.0_id_4.xml" relativeToChangelogFile="true"/>
-    <include file="v_1.0_id_5.xml" relativeToChangelogFile="true"/>
-    <include file="v_1.0_id_6.xml" relativeToChangelogFile="true"/>
-
-    <include file="v_1.0_id_7.xml" relativeToChangelogFile="true"/>
+    <!--Таблицы-->
+    <include file="v_1.0_id_1.xml" relativeToChangelogFile="true"/><!--таблица авторов-->
+    <include file="v_1.0_id_2.xml" relativeToChangelogFile="true"/><!--таблица издательств-->
+    <include file="v_1.0_id_3.xml" relativeToChangelogFile="true"/><!--таблица книг-->
+    <include file="v_1.0_id_4.xml" relativeToChangelogFile="true"/><!--таблица заказов-->
+    <include file="v_1.0_id_5.xml" relativeToChangelogFile="true"/><!--таблица продавцы-->
+    <include file="v_1.0_id_6.xml" relativeToChangelogFile="true"/><!--таблица заказчиков-->
+    <include file="v_1.0_id_7.xml" relativeToChangelogFile="true"/><!--таблица связи заказ-книги-->
+    <!-- Зависимости -->
     <include file="v_1.0_id_8.xml" relativeToChangelogFile="true"/>
     <include file="v_1.0_id_9.xml" relativeToChangelogFile="true"/>
     <include file="v_1.0_id_10.xml" relativeToChangelogFile="true"/>
     <include file="v_1.0_id_11.xml" relativeToChangelogFile="true"/>
+    <include file="v_1.0_id_12.xml" relativeToChangelogFile="true"/>
+    <include file="v_1.0_id_13.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

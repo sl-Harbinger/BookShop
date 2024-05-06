@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+    <!--Таблицы-->
+    <include file="v_2.0_id_1.xml" relativeToChangelogFile="true"/><!--таблица пользователей-->
+    <include file="v_2.0_id_2.xml" relativeToChangelogFile="true"/><!--таблица ролей-->
+    <include file="v_2.0_id_3.xml" relativeToChangelogFile="true"/><!--таблица связи пользователей и ролей-->
+
+    <include file="v_2.0_id_4.xml" relativeToChangelogFile="true"/>
+    <include file="v_2.0_id_5.xml" relativeToChangelogFile="true"/>
+
+</databaseChangeLog>

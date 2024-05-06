@@ -1,7 +1,6 @@
 package ru.testproj.book.backend.api.resource;
 
 import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -9,10 +8,15 @@ import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.tags.Tags;
 import org.springframework.http.ResponseEntity;
-import ru.testproj.book.backend.api.dto.ExampleDto;
+import org.springframework.web.bind.annotation.RequestParam;
+import ru.testproj.book.backend.api.dto.BookDto;
+import ru.testproj.book.backend.api.dto.PagebleResponse;
 
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import java.util.List;
 import java.util.UUID;
+
 @Tags(
         value = {
                 @Tag(name = "Пример ресурса", description = "Пример описания ресурса")
@@ -20,21 +24,64 @@ import java.util.UUID;
 )
 public interface BookResource {
 
-    @Operation(summary = "Получение счета по идентификатору")
+    @Operation(summary = "получение всех книг")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Счет найден",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ExampleDto.class)) }),
-            @ApiResponse(responseCode = "400", description = "Предоставлен неверный идентификатор",
+            @ApiResponse(responseCode = "200", description = "книги получены",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class))}),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
                     content = @Content),
-            @ApiResponse(responseCode = "404", description = "Счет по заданному идентификатору не найден",
-                    content = @Content) })
-    ResponseEntity<ExampleDto> getExampleByID(@Parameter(description = "Идентификатор счета для поиска") @NotNull UUID uuid);
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content)})
+    ResponseEntity<PagebleResponse<BookDto>> getBookAll(@RequestParam(value = "page", defaultValue = "0") @Min(0) int page,
+                                                        @RequestParam(value = "size", defaultValue = "10") @Min(1) @Max(100) int size);
 
-    @Operation(summary = "Создание счета")
+
+    @Operation(summary = "получение книги по Id")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Счет создан",
-                    content = { @Content(mediaType = "application/json",
-                            schema = @Schema(implementation = ExampleDto.class)) }) })
-    ExampleDto createExample(ExampleDto exampleDto);
+            @ApiResponse(responseCode = "200", description = "книга получена",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class))}),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content)})
+    ResponseEntity<BookDto> getBookId(UUID id);
+
+
+    @Operation(summary = "получение книги по названию")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "книга найдена",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class))}),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content)})
+    ResponseEntity<List<BookDto>> getBookTitle(String title);
+
+
+    @Operation(summary = "добавление книги")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "книга добавлена",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class))}),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content)})
+    ResponseEntity<String> createBook(BookDto bookDto);
+
+
+    @Operation(summary = "поиск книг по автору")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "автор найден",
+                    content = {@Content(mediaType = "application/json",
+                            schema = @Schema(implementation = BookDto.class))}),
+            @ApiResponse(responseCode = "500", description = "что то пошло не так",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "не найдено",
+                    content = @Content)})
+    ResponseEntity<String> getBookAuthor(String string);
+
 }

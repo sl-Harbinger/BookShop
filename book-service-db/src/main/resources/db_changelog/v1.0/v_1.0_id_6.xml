@@ -5,14 +5,14 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_6.1_module_book-service_table_customer_date_01022023.xml" author="${author}">
+    <changeSet id="v_1.0_id_6.2_module_book-service_table_customer_date_01022023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
             <not>
                 <tableExists tableName="${prefix}_customer"/>
             </not>
         </preConditions>
-        <createTable tableName="${prefix}_customer" remarks="таблица книг">
-            <column name="id" type="uuid" remarks="поле для связи по id с заказом">
+        <createTable tableName="${prefix}_customer" remarks="таблица заказчиков">
+            <column name="id" type="uuid" remarks="поле для связи с заказом">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)" remarks="ФИО покупвтеля"/>

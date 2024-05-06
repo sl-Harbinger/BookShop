@@ -5,22 +5,23 @@
     <property name="prefix" value="db_book"/>
     <property name="author" value="Slava"/>
 
-    <changeSet id="v_1.0_id_7.1_module_book-service_connect_author\book_date_31012023.xml" author="${author}">
+    <changeSet id="v_1.0_id_7.2_module_book-service_table_union_book_order_date_02022023.xml" author="${author}">
         <preConditions onFail="MARK_RAN">
-                <tableExists tableName="db_book_book"/>
-                <tableExists tableName="db_book_author"/>
+            <not>
+                <tableExists tableName="${prefix}_union_book_order"/>
+            </not>
         </preConditions>
-        <!--    -->
-            <addForeignKeyConstraint baseTableName="db_book_book"
-                                     baseColumnNames="id_author"
-                                     constraintName="fk_db_book_book_id_author_db_book_author_id"
-                                     referencedTableName="db_book_author"
-                                     referencedColumnNames="id"/>
+        <createTable tableName="${prefix}_union_book_order" remarks="таблица связи заказ-книги(могие к многим)">
+            <column name="id" type="uuid" remarks="поле id">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="book" type="uuid" remarks="связь с книгой"/>
+            <column name="order" type="uuid" remarks="связь с продажей"/>
+        </createTable>
         <rollback>
-            <dropForeignKeyConstraint baseTableName="book"
-                                      constraintName="fk_id_author_book"/>
-
+            <dropTable tableName="${prefix}_union_book_order"/>
         </rollback>
     </changeSet>
+
 
 </databaseChangeLog>

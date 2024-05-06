@@ -12,7 +12,7 @@
             </not>
         </preConditions>
         <createTable tableName="${prefix}_author" remarks="таблица авторов">
-            <column name="id" type="uuid" remarks="поле для связи по id с книгой">
+            <column name="id" type="uuid" remarks="поле для связи с книгой">
                 <constraints primaryKey="true"/>
             </column>
             <column name="name" type="VARCHAR(255)" remarks="ФИО автора"/>
@@ -21,9 +21,6 @@
             <dropTable tableName="${prefix}_author"/>
         </rollback>
     </changeSet>
-
-
-
 
 
 </databaseChangeLog>

@@ -9,5 +9,6 @@
     <property name="schema" value="schema_book"/>
 
     <include file="db_changelog/v1.0/changelog-v1.0-cumulative.xml" relativeToChangelogFile="true"/>
+    <include file="db_changelog.v2.0/changelog-v2.0-cumulative.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>

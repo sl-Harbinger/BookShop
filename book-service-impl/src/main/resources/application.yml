@@ -17,6 +17,13 @@ spring:
     drop-first: false
     user: postgres
     password: postgres
+  jpa:
+    show-sql: true
+  activemq:
+    broker-url:
+#  main:
+#    allow-circular-references: true  # не тестирует циклическую зависимость бин
+
 
 springdoc:
   api-docs:
@@ -26,4 +33,8 @@ springdoc:
     display-request-duration: true
     show-extensions: true
     show-common-extensions: true
+
+jwt:
+  secret: book_demo
+  lifetime: 30m
 
