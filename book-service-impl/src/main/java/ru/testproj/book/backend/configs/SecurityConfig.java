@@ -1,7 +1,7 @@
 package ru.testproj.book.backend.configs;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.Setter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -23,24 +23,14 @@ import ru.testproj.book.backend.service.impl.UserService;
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
     private final BCryptPasswordEncoder passwordEncoder1;
+    @Setter
     private UserService userService;
+    @Setter
     private JwtRequestFilter jwtRequestFilter;
 
-    @Autowired
 
     public SecurityConfig(BCryptPasswordEncoder passwordEncoder1) {
         this.passwordEncoder1 = passwordEncoder1;
-    }
-
-
-    @Autowired
-    public void setUserService(UserService userService) {
-        this.userService = userService;
-    }
-
-    @Autowired
-    public void setJwtRequestFilter(JwtRequestFilter jwtRequestFilter) {
-        this.jwtRequestFilter = jwtRequestFilter;
     }
 
     @Bean

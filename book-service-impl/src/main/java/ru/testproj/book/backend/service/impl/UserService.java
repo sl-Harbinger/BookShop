@@ -28,23 +28,6 @@ public class UserService implements UserDetailsService {
 
     private PasswordEncoder passwordEncoder;
 
-//    private final RoleRepository roleRepository;
-//
-//    @Autowired
-//    public void setUserRepository(UserRepository userRepository) {
-//        this.userRepository = userRepository;
-//    }
-//
-//    @Autowired
-//    public void setRoleService(RoleService roleService) {
-//        this.roleService = roleService;
-//    }
-//
-//    @Autowired
-//    public void setPasswordEncoder(PasswordEncoder passwordEncoder) {
-//        this.passwordEncoder = (PasswordEncoder) passwordEncoder;
-//    }
-//
 
     public Optional<User> findByUsername(String username) {
         return userRepository.findByUsername(username);
